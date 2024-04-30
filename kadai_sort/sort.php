@@ -12,33 +12,31 @@
         /// 独自のソート関数を作成
         function sort_2way ($array , $order) {
             
-            //引数$orderは昇順かチェック
-            if ($order === "ascending") {
-            //trueの場合は昇順にソート
-            sort($array);
-            //falseの場合は降順にソート
+            //$orderがTRUEの場合は昇順、FALSEの場合は降順にソート
+            if ($order === TRUE) {
+                //trueの場合
+                echo "昇順でソート<br>";
+                sort ($array);
+                //falseの場合
             } else {
+                echo "降順でソート<br>";
                 rsort($array);
+            }  
+
+            //配列の要素を一行ずつ出力
+            foreach ($array as $value) {
+                echo $value . "<br>";
             }
-            return($array);
         }
        
         //ソートする配列を宣言
-        $array = [15, 4, 18, 23, 10];
-       
-        //関数を呼び出す。昇順の場合
-        $sortedAscending = sort_2way($array, "ascending");
-        echo "昇順にソート<br>";
-        foreach ($sortedAscending as $value) {
-        echo $value . "<br>" ;
-        }
-        
-        // 関数を呼び出す。降順の場合
-        $sortedDescending = sort_2way($array, "descending");
-        echo "昇順にソート<br>";
-        foreach ($sortedDescending as $value) {
-        echo $value . "<br>" ;
-        }
+        $nums = [15, 4, 18, 23, 10];
+
+        //昇順でソートして出力
+        sort_2way ($nums , TRUE);
+        //降順でソートして出力
+        sort_2way ($nums , FALSE);
+
         ?>
     </p>
 </body>
